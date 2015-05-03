@@ -34,6 +34,25 @@ ALLOWED_HOSTS = [
     ".herokuapp.com",
 ]
 
+if os.getenv("I_AM_IN_DEV_ENV"):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ["DATABASE_NAME"],
+            'USER': os.environ["DATABASE_USER"],
+            'PASSWORD': os.environ["DATABASE_PASSWORD"],
+            'HOST': os.environ["DATABASE_HOST"],
+            'PORT': '5432',
+        }
+    }
+
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,7 +60,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'test_coverage_site.film',
+    'test_coverage_site.scoreboard',
     # 'workout_generator.access_token',
 )
 
