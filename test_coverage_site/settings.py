@@ -29,7 +29,7 @@ TEMPLATE_DEBUG = False
 if os.environ.get("I_AM_IN_DEV_ENV"):
     DEBUG = True
     TEMPLATE_DEBUG = True
-
+DEBUG = True  # DELETE
 ALLOWED_HOSTS = [
     ".herokuapp.com",
 ]
