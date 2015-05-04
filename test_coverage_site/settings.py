@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.humanize',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -89,7 +90,7 @@ STATIC_ROOT = 'staticfiles'
 
 AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
 AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
-AWS_STORAGE_BUCKET_NAME = "test-coverage-game-static"
+AWS_STORAGE_BUCKET_NAME = "test-coverage-site"
 
 if os.environ.get("I_AM_IN_DEV_ENV"):
     STATIC_URL = '/static/'
@@ -109,4 +110,4 @@ ADMIN_EMAILS = (
 if os.environ.get("I_AM_IN_DEV_ENV"):
     HOST_URL = "http://localhost:5000"
 else:
-    HOST_URL = "FIXMEFIXME"
+    HOST_URL = "http://test-coverage-game.herokuapp.com"
