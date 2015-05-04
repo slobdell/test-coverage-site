@@ -76,7 +76,7 @@ class ScoreBoard(object):
 
     def _format_line_count(self, line_count):
         thresh_to_str = {
-            500: "Less Than 500 lines",
+            500: "Fewer Than 500 lines",
             10000: "500 to 10,000 lines",
             sys.maxint: "Greater than 10,000 lines",
         }
